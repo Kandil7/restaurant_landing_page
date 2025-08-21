@@ -16,6 +16,9 @@ interface Category {
   image?: string;
 }
 
+// Disable static generation for this page
+export const dynamic = 'force-dynamic';
+
 export default function EditCategoryPage() {
   const [category, setCategory] = useState<Category | null>(null);
   const [name, setName] = useState('');

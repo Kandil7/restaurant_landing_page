@@ -18,13 +18,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
 
 // Initialize Firebase services
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-export { analytics };
+
+// Lazy initialization of analytics to avoid hydration issues
+let analyticsInstance: ReturnType<typeof getAnalytics> | null = null;
+export const analytics = {
+  get instance() {
+    if (typeof window !== 'undefined' && !analyticsInstance) {
+      analyticsInstance = getAnalytics(app);
+    }
+    return analyticsInstance;
+  }
+};
 
 // Helper function to get a reference to a collection
 export const getCollectionRef = (collectionName: string) => {

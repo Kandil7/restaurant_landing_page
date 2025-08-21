@@ -10,6 +10,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
+interface Category {
+  id: string;
+  name: string;
+}
+
 interface MenuItem {
   id: string;
   name: string;
@@ -18,10 +23,8 @@ interface MenuItem {
   categoryId: string;
 }
 
-interface Category {
-  id: string;
-  name: string;
-}
+// Disable static generation for this page
+export const dynamic = 'force-dynamic';
 
 export default function EditItemPage() {
   const [item, setItem] = useState<MenuItem | null>(null);

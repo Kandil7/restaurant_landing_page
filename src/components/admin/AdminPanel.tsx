@@ -52,7 +52,7 @@ export default function AdminPanel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const settingsData = await getRestaurantSettings();
+        const settingsData: any = await getRestaurantSettings();
         setSettings(settingsData);
         // In a real app, you would also fetch categories here
       } catch (err) {

@@ -29,3 +29,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+// Disable static generation to avoid hydration issues
+export const dynamicParams = false;
+export const revalidate = 0;

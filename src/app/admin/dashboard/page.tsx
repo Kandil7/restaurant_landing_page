@@ -42,6 +42,9 @@ interface RestaurantSettings {
   welcomeText: string;
 }
 
+// Disable static generation for this page
+export const dynamic = 'force-dynamic';
+
 export default function AdminDashboard() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [settings, setSettings] = useState<RestaurantSettings | null>(null);

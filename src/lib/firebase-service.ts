@@ -56,7 +56,7 @@ export const getCategories = async () => {
     const q = query(categoriesRef, where('visible', '==', true));
     const querySnapshot = await getDocs(q);
 
-    const categories = [];
+    const categories: any[] = [];
     for (const docSnapshot of querySnapshot.docs) {
       const category = {
         id: docSnapshot.id,
@@ -132,7 +132,7 @@ export const getMenuItemsByCategoryId = async (categoryId: string) => {
     const q = query(itemsRef, where('categoryId', '==', categoryId));
     const querySnapshot = await getDocs(q);
 
-    const items = [];
+    const items: any[] = [];
     for (const docSnapshot of querySnapshot.docs) {
       items.push({
         id: docSnapshot.id,

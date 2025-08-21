@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { db } from '@/lib/db';
+import { ensureDefaultData } from '@/lib/seed';
 import { getRestaurantSettings, updateRestaurantSettings } from '@/lib/firebase-service';
 
 // Middleware to check authentication
